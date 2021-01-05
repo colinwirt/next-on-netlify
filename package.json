@@ -1,8 +1,10 @@
 {
-  "name": "next-on-netlify",
+  "name": "@colinwirt/next-on-netlify",
   "version": "2.6.3",
   "description": "Wrapper for hosting NextJS applications with Server-Side Rendering on Netlify",
-  "bin": "./next-on-netlify.js",
+  "bin": {
+    "next-on-netlify": "next-on-netlify.js"
+  },
   "keywords": [
     "next",
     "nextjs",
@@ -16,7 +18,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/netlify/next-on-netlify"
+    "url": "https://github.com/colinwirt/next-on-netlify"
   },
   "homepage": "https://github.com/netlify/next-on-netlify",
   "author": "Finn Woelm",
@@ -29,8 +31,10 @@
     "format": "prettier --write .",
     "cleanup": "node ./tests/helpers/clearCache.js",
     "test": "jest --config tests/jest.config.js",
-    "cypress:local": "env CYPRESS_DEPLOY=local cypress run --config-file false --config video=false",
+    "cypress:local": "env CYPRESS_DEPLOY=local cypress open --config-file false --config video=false",
+    "cypress:local:open": "env CYPRESS_DEPLOY=local cypress open --config-file false --config video=false",
     "cypress:netlify": "env CYPRESS_DEPLOY=netlify cypress run --config-file false --config video=false",
+    "cypress:netlify:open": "env CYPRESS_DEPLOY=netlify cypress open --config-file false --config video=false",
     "cypress:local:testonly": "env CYPRESS_SKIP_DEPLOY=true npm run cypress:local",
     "cypress:netlify:testonly": "env CYPRESS_SKIP_DEPLOY=true npm run cypress:netlify"
   },

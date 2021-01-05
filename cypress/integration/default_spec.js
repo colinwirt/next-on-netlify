@@ -600,6 +600,14 @@ describe("API endpoint", () => {
   });
 });
 
+describe("Background Function", () => {
+  it.only("starts executing a background function", () => {
+    cy.request("/api/start-task-background").then((xhr) => {
+      cy.log(xhr);
+    });
+  });
+});
+
 describe("Preview Mode", () => {
   it("redirects to preview test page with dynamic route", () => {
     cy.visit("/api/enterPreview?id=999");
