@@ -130,6 +130,34 @@ describe("API Pages", () => {
       )
     ).toBe(true);
   });
+
+  test("creates a Netlify Background Function for API endpoints that end in `-background`", () => {
+    const functionsDir = join(PROJECT_PATH, "out_functions");
+
+    expect(
+      existsSync(
+        join(
+          functionsDir,
+          "next_api_background_starttask-background",
+          "next_api_background_starttask-background.js"
+        )
+      )
+    ).toBe(true);
+  });
+
+  test("does not allow non-API route Functions to end in `-background`", () => {
+    const functionsDir = join(PROJECT_PATH, "out_functions");
+
+    expect(
+      existsSync(
+        join(
+          functionsDir,
+          "next_notbackground_shouldnotbebackground",
+          "next_notbackground_shouldnotbebackground.js"
+        )
+      )
+    ).toBe(true);
+  });
 });
 
 describe("SSG Pages with getStaticProps", () => {
